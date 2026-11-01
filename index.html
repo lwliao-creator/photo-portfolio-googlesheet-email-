@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ===== SEO 基本標籤 ===== -->
+  <title>小柯攝影工作室 | 臺中婚紗婚禮紀錄</title>
+  <meta name="description" content="小柯攝影工作室位於臺中，提供婚紗攝影、婚禮紀錄與形象照拍攝。風格自然、不過度修飾，重視情緒與現場關係，記錄你們最真實的樣子。">
+  <meta name="keywords" content="臺中婚紗, 臺中婚禮紀錄, 臺中形象照, 自然風婚紗, 婚攝, 小柯攝影工作室">
+  <meta name="author" content="小柯攝影工作室">
+  <link rel="canonical" href="https://your-domain.vercel.app/">
+
+  <!-- 社群分享預覽（Open Graph） -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="小柯攝影工作室 | 臺中婚紗婚禮紀錄">
+  <meta property="og:description" content="自然、不過度修飾，重視情緒與現場關係的臺中婚紗、婚禮紀錄與形象照攝影。">
+  <meta property="og:image" content="images/hero.jpg">
+  <meta property="og:locale" content="zh_TW">
+
+  <!-- 結構化資料：讓 Google 認識這是一間在地攝影工作室 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "小柯攝影工作室",
+    "description": "臺中婚紗攝影、婚禮紀錄與形象照拍攝",
+    "areaServed": "臺中",
+    "address": { "@type": "PostalAddress", "addressLocality": "臺中市", "addressCountry": "TW" },
+    "email": "hello@kophoto.tw",
+    "priceRange": "NT$6,000 - NT$60,000"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       1. 設計變數：顏色、字體、間距集中管理，改一處全站跟著變
+       ========================================================= */
+    :root {
+      --bg: #f7f3ee;          /* 米白底，像相紙 */
+      --bg-alt: #efe8df;      /* 區塊交替色 */
+      --ink: #2b2723;         /* 主要文字，深咖啡黑 */
+      --ink-soft: #6b625a;    /* 次要文字 */
+      --accent: #a0704f;      /* 強調色，溫暖的焦糖色 */
+      --accent-dark: #7f5539;
+      --line: #ddd3c7;
+      --white: #fffdfa;
+
+      --font-serif: "Noto Serif TC", serif;
+      --font-sans: "Noto Sans TC", -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+
+      --container: 1160px;
+      --radius: 4px;
+      --section-space: 96px;
+    }
+
+    /* =========================================================
+       2. 基礎重設
+       ========================================================= */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-weight: 400;
+      line-height: 1.8;
+      letter-spacing: 0.02em;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; line-height: 1.4; margin: 0 0 0.6em; }
+    p { margin: 0 0 1em; }
+
+    .container { width: min(100% - 40px, var(--container)); margin-inline: auto; }
+
+    /* 給鍵盤使用者的跳到主內容連結（無障礙） */
+    .skip-link {
+      position: absolute; left: -999px; top: 8px;
+      background: var(--ink); color: var(--white); padding: 8px 16px; z-index: 100;
+    }
+    .skip-link:focus { left: 8px; }
+
+    /* 區塊共用樣式 */
+    section { padding-block: var(--section-space); }
+    section:nth-of-type(even) { background: var(--bg-alt); }
+    .section-head { text-align: center; max-width: 640px; margin: 0 auto 56px; }
+    .eyebrow {
+      display: block; font-size: 0.8rem; letter-spacing: 0.3em;
+      color: var(--accent); text-transform: uppercase; margin-bottom: 8px;
+    }
+    .section-head h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+    .section-head p { color: var(--ink-soft); }
+
+    /* 按鈕 */
+    .btn {
+      display: inline-block; padding: 14px 32px; border-radius: var(--radius);
+      text-decoration: none; font-size: 0.95rem; letter-spacing: 0.1em;
+      border: 1px solid var(--accent); transition: background .25s, color .25s;
+      cursor: pointer; font-family: inherit;
+    }
+    .btn-primary { background: var(--accent); color: var(--white); }
+    .btn-primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+    .btn-outline { background: transparent; color: var(--white); border-color: var(--white); }
+    .btn-outline:hover { background: var(--white); color: var(--ink); }
+
+    /* =========================================================
+       3. 頁首導覽列
+       ========================================================= */
+    .site-header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(247, 243, 238, 0.94);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+    .logo { font-family: var(--font-serif); font-size: 1.15rem; text-decoration: none; letter-spacing: 0.1em; }
+    .nav-links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
+    .nav-links a { text-decoration: none; font-size: 0.92rem; color: var(--ink-soft); }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* =========================================================
+       4. Hero 首頁
+       ========================================================= */
+    .hero {
+      position: relative; min-height: 88vh; display: grid; place-items: center;
+      text-align: center; color: var(--white); padding: 0;
+      background: #3a322c url("images/hero.jpg") center / cover no-repeat;
+    }
+    /* 深色漸層蓋在照片上，確保白字看得清楚 */
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(30,24,20,.35), rgba(30,24,20,.6));
+    }
+    .hero-content { position: relative; padding: 40px 20px; max-width: 720px; }
+    .hero-services { letter-spacing: 0.4em; font-size: 0.9rem; margin-bottom: 16px; opacity: .9; }
+    .hero h1 { font-size: clamp(2.2rem, 6vw, 3.8rem); letter-spacing: 0.12em; margin-bottom: 20px; }
+    .hero-tagline { font-family: var(--font-serif); font-size: clamp(1.05rem, 2.2vw, 1.3rem); margin-bottom: 40px; }
+    .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* =========================================================
+       5. 作品集（重點：桌機 3 欄 / 平板 2 欄 / 手機 1 欄）
+       ========================================================= */
+    .category-nav {
+      display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 48px;
+    }
+    .category-nav a {
+      text-decoration: none; padding: 8px 22px; border: 1px solid var(--line);
+      border-radius: 999px; font-size: 0.9rem; background: var(--white);
+    }
+    .category-nav a:hover { border-color: var(--accent); color: var(--accent); }
+
+    .gallery-group { margin-bottom: 72px; scroll-margin-top: 90px; }
+    .gallery-group:last-child { margin-bottom: 0; }
+    .gallery-group h3 { font-size: 1.4rem; display: flex; align-items: baseline; gap: 12px; }
+    .gallery-group h3 small { font-family: var(--font-sans); font-weight: 300; font-size: .85rem; color: var(--ink-soft); }
+    .gallery-intro { color: var(--ink-soft); margin-bottom: 24px; }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);   /* 桌機：三欄 */
+      gap: 16px;
+    }
+    .gallery figure { margin: 0; overflow: hidden; border-radius: var(--radius); background: var(--line); }
+    .gallery img {
+      width: 100%; aspect-ratio: 4 / 5; object-fit: cover;
+      transition: transform .6s ease;
+    }
+    .gallery figure:hover img { transform: scale(1.04); }
+
+    /* =========================================================
+       6. 案例說明
+       ========================================================= */
+    .cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    .case-card {
+      background: var(--white); border-radius: var(--radius); overflow: hidden;
+      border: 1px solid var(--line); display: flex; flex-direction: column;
+    }
+    .case-card img { aspect-ratio: 3 / 2; object-fit: cover; width: 100%; }
+    .case-body { padding: 24px; }
+    .case-tag { font-size: .78rem; color: var(--accent); letter-spacing: .15em; }
+    .case-body h3 { font-size: 1.15rem; margin-top: 6px; }
+    .case-body dl { margin: 0; }
+    .case-body dt { font-weight: 500; font-size: .88rem; color: var(--ink); margin-top: 12px; }
+    .case-body dd { margin: 2px 0 0; font-size: .92rem; color: var(--ink-soft); }
+
+    /* =========================================================
+       7. 服務方案
+       ========================================================= */
+    .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
+    .plan {
+      background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 36px 28px; display: flex; flex-direction: column;
+    }
+    .plan.featured { border-color: var(--accent); box-shadow: 0 12px 32px rgba(160,112,79,.12); }
+    .plan h3 { font-size: 1.3rem; margin-bottom: 4px; }
+    .plan-price { font-family: var(--font-serif); font-size: 1.5rem; color: var(--accent); margin: 8px 0 4px; }
+    .plan-time { font-size: .88rem; color: var(--ink-soft); margin-bottom: 20px; }
+    .plan ul { padding-left: 1.2em; margin: 0 0 auto; color: var(--ink-soft); font-size: .95rem; }
+    .plan li { margin-bottom: 6px; }
+
+    .addons {
+      margin-top: 40px; background: var(--white); border: 1px dashed var(--accent);
+      border-radius: var(--radius); padding: 28px 32px;
+    }
+    .addons h3 { font-size: 1.1rem; }
+    .addons ul { margin: 0; padding-left: 1.2em; color: var(--ink-soft); columns: 2; column-gap: 40px; }
+    .addons li { margin-bottom: 6px; break-inside: avoid; }
+
+    /* =========================================================
+       8. 拍攝流程
+       ========================================================= */
+    .steps {
+      list-style: none; margin: 0; padding: 0; counter-reset: step;
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px;
+    }
+    .steps li { counter-increment: step; text-align: center; position: relative; padding: 0 8px; }
+    .steps li::before {
+      content: "0" counter(step);
+      display: grid; place-items: center; width: 64px; height: 64px; margin: 0 auto 16px;
+      border-radius: 50%; border: 1px solid var(--accent); color: var(--accent);
+      font-family: var(--font-serif); font-size: 1.2rem; background: var(--bg);
+    }
+    .steps h3 { font-size: 1.1rem; margin-bottom: 6px; }
+    .steps p { font-size: .9rem; color: var(--ink-soft); }
+
+    /* =========================================================
+       9. 關於我
+       ========================================================= */
+    .about { display: grid; grid-template-columns: 5fr 7fr; gap: 56px; align-items: center; }
+    .about img { border-radius: var(--radius); aspect-ratio: 4 / 5; object-fit: cover; width: 100%; }
+    .about h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+    .about-points { list-style: none; padding: 0; margin: 24px 0 0; }
+    .about-points li { padding: 14px 0; border-top: 1px solid var(--line); }
+    .about-points strong { display: block; font-family: var(--font-serif); color: var(--accent); }
+
+    /* =========================================================
+       10. 詢問表單
+       ========================================================= */
+    .contact-form {
+      max-width: 760px; margin: 0 auto; background: var(--white);
+      padding: 40px; border-radius: var(--radius); border: 1px solid var(--line);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    .field { display: flex; flex-direction: column; gap: 6px; }
+    .field.full { grid-column: 1 / -1; }
+    .field label { font-size: .9rem; font-weight: 500; }
+    .field label .req { color: var(--accent); }
+    .field input, .field select, .field textarea {
+      font: inherit; font-size: .95rem; padding: 12px 14px; color: var(--ink);
+      background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius);
+    }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: 2px solid var(--accent); outline-offset: 1px; border-color: transparent;
+    }
+    .field textarea { min-height: 140px; resize: vertical; }
+    .form-note { grid-column: 1 / -1; font-size: .85rem; color: var(--ink-soft); margin: 0; }
+    .contact-form .btn { grid-column: 1 / -1; justify-self: center; min-width: 220px; }
+    .contact-form .btn:disabled { opacity: .6; cursor: wait; }
+    .form-status { grid-column: 1 / -1; text-align: center; margin: 0; font-size: .95rem; }
+    .form-status:empty { display: none; }
+    .form-status.success { color: #4a7a52; }
+    .form-status.error { color: #b04a3a; }
+
+    /* =========================================================
+       11. 頁尾
+       ========================================================= */
+    .site-footer { background: var(--ink); color: #d8cfc5; padding: 56px 0 28px; font-size: .92rem; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 40px; }
+    .footer-brand { font-family: var(--font-serif); font-size: 1.2rem; color: var(--white); margin-bottom: 8px; }
+    .site-footer h3 { font-family: var(--font-sans); font-size: .8rem; letter-spacing: .2em; color: #a89c90; font-weight: 500; }
+    .site-footer a { color: #f1e9df; text-decoration: none; }
+    .site-footer a:hover { color: var(--accent); }
+    .site-footer address { font-style: normal; }
+    .copyright { border-top: 1px solid #4a423b; padding-top: 24px; text-align: center; color: #a89c90; font-size: .82rem; }
+
+    /* =========================================================
+       12. RWD 響應式
+       ========================================================= */
+
+    /* 平板（769px ~ 1024px）：作品集兩欄 */
+    @media (max-width: 1024px) {
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+      .cases, .plans { grid-template-columns: repeat(2, 1fr); }
+      .steps { grid-template-columns: repeat(3, 1fr); row-gap: 40px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* 手機（768px 以下）：全部單欄 */
+    @media (max-width: 768px) {
+      :root { --section-space: 64px; }
+      .nav-links { display: none; }               /* 手機隱藏選單，保留 Logo 與詢問按鈕 */
+      .gallery { grid-template-columns: 1fr; }    /* 作品集：單欄 */
+      .cases, .plans, .about { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; text-align: left; }
+      .steps li { display: grid; grid-template-columns: 64px 1fr; column-gap: 16px; text-align: left; }
+      .steps li::before { grid-row: span 2; margin: 0; }
+      .addons ul { columns: 1; }
+      .contact-form { grid-template-columns: 1fr; padding: 28px 20px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .about { gap: 32px; }
+    }
+
+    /* 使用者若關閉動畫偏好，就不做縮放效果 */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .gallery img { transition: none; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">跳到主要內容</a>
+
+  <!-- ===================== 頁首 ===================== -->
+  <header class="site-header">
+    <nav class="container nav" aria-label="主選單">
+      <a class="logo" href="#top">小柯攝影工作室</a>
+      <ul class="nav-links">
+        <li><a href="#portfolio">作品</a></li>
+        <li><a href="#cases">案例</a></li>
+        <li><a href="#plans">方案</a></li>
+        <li><a href="#process">流程</a></li>
+        <li><a href="#about">關於我</a></li>
+        <li><a href="#contact">詢問檔期</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ===================== 1. Hero ===================== -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="hero-services">婚紗　｜　婚禮紀錄　｜　形象照</p>
+        <h1 id="hero-title">小柯攝影工作室</h1>
+        <p class="hero-tagline">不用擺好姿勢，我們只記錄你們本來的樣子。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#portfolio">看作品</a>
+          <a class="btn btn-outline" href="#contact">詢問檔期</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 2. 作品分類 ===================== -->
+    <section id="portfolio" aria-labelledby="portfolio-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Portfolio</span>
+          <h2 id="portfolio-title">作品集</h2>
+          <p>自然光、少量引導、不過度修圖。每一張都保留當下的溫度與兩個人之間的距離。</p>
+        </div>
+
+        <nav class="category-nav" aria-label="作品分類">
+          <a href="#gallery-prewedding">婚紗</a>
+          <a href="#gallery-wedding-day">婚禮紀錄</a>
+          <a href="#gallery-portrait">形象照</a>
+        </nav>
+
+        <!-- 婚紗 -->
+        <div class="gallery-group" id="gallery-prewedding">
+          <h3>婚紗 <small>Pre-wedding</small></h3>
+          <p class="gallery-intro">臺中在地取景：高美濕地、大坑步道、審計新村與老宅巷弄。</p>
+          <div class="gallery">
+            <figure><img src="images/wedding-01.jpg" alt="臺中高美濕地夕陽下新人牽手散步的自然風婚紗照" loading="lazy" width="800" height="1000"></figure>
+            <figure><img src="images/wedding-02.jpg" alt="臺中審計新村老屋前新人相視而笑的婚紗攝影" loading="lazy" width="800" height="1000"></figure>
+            <figure><img src="images/wedding-03.jpg" alt="臺中大坑森林步道新娘回頭微笑的自然光婚紗照" loading="lazy" width="800" height="1000"></figure>
+            <figure><img src="images/wedding-04.jpg" alt="臺中老宅窗邊新人依偎的室內自然光婚紗照" loading="lazy" width="800" height="1000"></figure>
+            <figure><img src="images/wedding-05.jpg" alt="臺中草原上新郎背起新娘大笑的輕婚紗紀實照" loading="lazy" width="800" height="1000"></figure>
+            <figure><img src="images/wedding-06.jpg" alt="臺中街頭新人騎單車的生活感婚紗攝影" loading="lazy" width="800" height="1000"></figure>
+          </div>
+        </div>
+
+        <!-- 婚禮紀錄 -->
+        <div class="gallery-group" id="gallery-wedding-day">
+          <h3>婚禮紀錄 <small>Wedding Day</small></h3>
+          <p class="gallery-intro">從清晨梳化到最後送客，安靜地站在旁邊，把重要的人和瞬間都留下來。</p>
+          <div class="gallery">
+            <figure><img src="images/ceremony-01.jpg" alt="臺中婚禮紀錄新娘清晨梳化時與媽媽對看的感動瞬間" loading="lazy" width="800" height="1000"></figure>
+            <figure><img src="images/ceremony-02.jpg" alt="臺中婚禮紀錄迎娶時伴郎團闖關的歡笑畫面" loading="lazy" width="800" height="1000"></figure>
+            <figure><img src="images/ceremony-03.jpg" alt="臺中婚禮紀錄新娘拜別父母時落淚的情緒特寫" loading="lazy" width="800" height="1000"></figure>
+            <figure><img src="images/ceremony-04.jpg" alt="臺中婚宴會館新人進場時賓客鼓掌的婚禮攝影" loading="lazy" width="800" height="1000"></figure>
+            <figure><img src="images/ceremony-05.jpg" alt="臺中戶外證婚儀式新人交換戒指的婚禮紀錄特寫" loading="lazy" width="800" height="1000"></figure>
+            <figure><img src="images/ceremony-06.jpg" alt="臺中婚禮紀錄送客時新人與長輩擁抱的溫暖畫面" loading="lazy" width="800" height="1000"></figure>
+          </div>
+        </div>
+
+        <!-- 形象照 -->
+        <div class="gallery-group" id="gallery-portrait">
+          <h3>形象照 <small>Portrait</small></h3>
+          <p class="gallery-intro">給品牌主理人、自由工作者與專業人士，拍出「看起來就是你」的形象照。</p>
+          <div class="gallery">
+            <figure><img src="images/portrait-01.jpg" alt="臺中咖啡店主理人在吧檯手沖咖啡的自然形象照" loading="lazy" width="800" height="1000"></figure>
+            <figure><img src="images/portrait-02.jpg" alt="臺中女性顧問在窗邊自然光下微笑的商務形象照" loading="lazy" width="800" height="1000"></figure>
+            <figure><img src="images/portrait-03.jpg" alt="臺中設計師在工作室畫草圖的工作情境形象照" loading="lazy" width="800" height="1000"></figure>
+            <figure><img src="images/portrait-04.jpg" alt="臺中瑜珈老師在戶外草地伸展的個人品牌形象照" loading="lazy" width="800" height="1000"></figure>
+            <figure><img src="images/portrait-05.jpg" alt="臺中律師穿西裝在辦公室的專業半身形象照" loading="lazy" width="800" height="1000"></figure>
+            <figure><img src="images/portrait-06.jpg" alt="臺中花藝師在花店整理花束的生活感形象照" loading="lazy" width="800" height="1000"></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 3. 案例說明 ===================== -->
+    <section id="cases" aria-labelledby="cases-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Stories</span>
+          <h2 id="cases-title">案例說明</h2>
+          <p>每一組客人的需求都不一樣。以下是三個真實情境，看看我們怎麼一起完成。</p>
+        </div>
+
+        <div class="cases">
+          <article class="case-card">
+            <img src="images/case-wedding.jpg" alt="臺中高美濕地自然風婚紗案例：害羞新人在夕陽下自然互動" loading="lazy" width="900" height="600">
+            <div class="case-body">
+              <span class="case-tag">婚紗｜高美濕地</span>
+              <h3>不想擺拍的害羞新人</h3>
+              <dl>
+                <dt>拍攝情境</dt>
+                <dd>平日傍晚，避開人潮，在濕地等待日落前 40 分鐘的柔光。</dd>
+                <dt>客戶需求</dt>
+                <dd>兩人都怕鏡頭，看過很多「很用力」的婚紗，希望照片像日常約會。</dd>
+                <dt>成品方向</dt>
+                <dd>以散步、聊天為主，用遊戲引導互動。交付 60 張暖色調精修，保留膚質與真實表情。</dd>
+              </dl>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <img src="images/case-ceremony.jpg" alt="臺中婚宴會館婚禮紀錄案例：新娘拜別父母的感動時刻" loading="lazy" width="900" height="600">
+            <div class="case-body">
+              <span class="case-tag">婚禮紀錄｜西屯婚宴會館</span>
+              <h3>想留下家人表情的婚禮</h3>
+              <dl>
+                <dt>拍攝情境</dt>
+                <dd>迎娶＋午宴，約 200 位賓客，現場流程緊湊、光線混雜。</dd>
+                <dt>客戶需求</dt>
+                <dd>新娘最在意爸媽和阿嬤的反應，不希望照片只有新人。</dd>
+                <dt>成品方向</dt>
+                <dd>事前列出重要親友名單，拜別與敬酒時專注捕捉長輩神情。交付 600 張以上紀實照與 40 張精修。</dd>
+              </dl>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <img src="images/case-portrait.jpg" alt="臺中咖啡店主理人品牌形象照案例：在店內工作的自然神情" loading="lazy" width="900" height="600">
+            <div class="case-body">
+              <span class="case-tag">形象照｜咖啡店品牌</span>
+              <h3>需要親切感的品牌主理人</h3>
+              <dl>
+                <dt>拍攝情境</dt>
+                <dd>在主理人自己的咖啡店，營業前 2 小時拍攝工作與空間。</dd>
+                <dt>客戶需求</dt>
+                <dd>要用在官網、IG 與媒體採訪，希望專業但不冰冷。</dd>
+                <dt>成品方向</dt>
+                <dd>一半正式半身照、一半工作情境照，並預留橫幅與直式構圖，方便社群直接使用。</dd>
+              </dl>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 4. 服務方案 ===================== -->
+    <section id="plans" aria-labelledby="plans-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Plans</span>
+          <h2 id="plans-title">服務方案</h2>
+          <p>以下為參考價格區間，實際報價依拍攝時數、地點與需求調整，歡迎先來聊聊。</p>
+        </div>
+
+        <div class="plans">
+          <article class="plan">
+            <h3>形象照方案</h3>
+            <p class="plan-price">NT$6,000 – 15,000</p>
+            <p class="plan-time">交件時間：拍攝後 7–10 個工作天</p>
+            <ul>
+              <li>拍攝 1–3 小時，1–2 個場景</li>
+              <li>拍攝前線上溝通服裝與用途</li>
+              <li>全部照片調色交付（約 80–150 張）</li>
+              <li>精修 10–20 張</li>
+              <li>雲端相簿下載</li>
+            </ul>
+          </article>
+
+          <article class="plan featured">
+            <h3>自然風婚紗</h3>
+            <p class="plan-price">NT$25,000 – 45,000</p>
+            <p class="plan-time">交件時間：拍攝後 4–6 週</p>
+            <ul>
+              <li>拍攝 4–8 小時，2–3 個臺中景點</li>
+              <li>拍攝前見面討論故事與場景</li>
+              <li>全部照片調色交付（約 300–500 張）</li>
+              <li>精修 40–60 張</li>
+              <li>可搭配合作造型師（另計）</li>
+            </ul>
+          </article>
+
+          <article class="plan">
+            <h3>婚禮紀錄</h3>
+            <p class="plan-price">NT$18,000 – 60,000</p>
+            <p class="plan-time">交件時間：初選 2 週內、完整 6–8 週</p>
+            <ul>
+              <li>單儀式／單宴客／迎娶＋宴客可選</li>
+              <li>婚前流程會議，確認重要親友</li>
+              <li>全部照片調色交付（約 500–1,200 張）</li>
+              <li>精修 30–60 張</li>
+              <li>婚禮後 3 天內提供 20 張預覽</li>
+            </ul>
+          </article>
+        </div>
+
+        <aside class="addons" aria-labelledby="addons-title">
+          <h3 id="addons-title">加選規則</h3>
+          <ul>
+            <li>加拍時數：每小時 NT$2,000</li>
+            <li>加精修：每張 NT$300</li>
+            <li>加第二攝影師：每場 NT$8,000 起</li>
+            <li>急件交付（7 天內）：總價加 20%</li>
+            <li>臺中市以外車馬費：依距離另計</li>
+            <li>實體相本：20 頁 NT$6,000 起</li>
+            <li>訂金為總價 30%，確認檔期後保留日期</li>
+            <li>雨天備案：可延期一次，不另收費</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ===================== 5. 拍攝流程 ===================== -->
+    <section id="process" aria-labelledby="process-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Process</span>
+          <h2 id="process-title">拍攝流程</h2>
+          <p>從第一則訊息到收到照片，每一步都清楚透明。</p>
+        </div>
+
+        <ol class="steps">
+          <li>
+            <h3>詢問</h3>
+            <p>填寫表單或私訊 IG，告訴我日期、地點與想拍的類型，2 個工作天內回覆。</p>
+          </li>
+          <li>
+            <h3>溝通</h3>
+            <p>線上或見面聊聊你們的故事、喜歡的風格，一起決定場景與服裝。</p>
+          </li>
+          <li>
+            <h3>拍攝</h3>
+            <p>現場不趕、不硬擺，用引導和聊天讓你們放鬆，自然的表情就會出現。</p>
+          </li>
+          <li>
+            <h3>精修</h3>
+            <p>統一調色並挑選精修，保留膚質與光線，只修掉暫時性的瑕疵。</p>
+          </li>
+          <li>
+            <h3>交件</h3>
+            <p>透過雲端相簿交付高解析檔案，可加購實體相本留作紀念。</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== 6. 關於我 ===================== -->
+    <section id="about" aria-labelledby="about-title">
+      <div class="container about">
+        <img src="images/about.jpg" alt="臺中婚紗攝影師小柯拿著相機在戶外工作的照片" loading="lazy" width="800" height="1000">
+        <div>
+          <span class="eyebrow">About</span>
+          <h2 id="about-title">嗨，我是小柯</h2>
+          <p>土生土長的臺中人，拍婚禮與人像超過八年。比起完美的構圖，我更在意照片裡的人是不是放鬆的、是不是真的在笑。</p>
+          <p>我相信好照片來自好關係——你和身邊的人的關係，也是你和攝影師之間的關係。所以拍攝前，我會花很多時間聽你們的故事。</p>
+          <ul class="about-points">
+            <li><strong>自然，不過度修飾</strong>保留膚質、光影與現場真實的樣子，修圖只是讓照片更舒服。</li>
+            <li><strong>重視情緒與關係</strong>比起擺好的姿勢，更想捕捉擁抱前的那一秒、眼眶泛紅的瞬間。</li>
+            <li><strong>安靜的陪伴者</strong>婚禮當天我會盡量隱身，不打斷流程，讓你們專心過好這一天。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 7. 詢問表單 ===================== -->
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Contact</span>
+          <h2 id="contact-title">詢問檔期</h2>
+          <p>熱門日期通常提前 6–12 個月預約，有興趣歡迎先留下資料，我會盡快回覆。</p>
+        </div>
+
+        <!--
+          表單資料會寫入 Google 試算表。
+          接收端是 Google Apps Script（程式碼在 google-apps-script.gs），
+          部署後把網址貼到本頁最下方 <script> 裡的 SCRIPT_URL。
+        -->
+        <form class="contact-form" id="contact-form">
+          <!-- 防機器人陷阱：真人看不到，機器人會填，填了就不寫入試算表 -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="field">
+            <label for="name">姓名 <span class="req">*</span></label>
+            <input type="text" id="name" name="姓名" autocomplete="name" required>
+          </div>
+
+          <div class="field">
+            <label for="contact-info">聯絡方式（Email／電話／LINE）<span class="req">*</span></label>
+            <input type="text" id="contact-info" name="聯絡方式" required>
+          </div>
+
+          <div class="field">
+            <label for="type">拍攝類型 <span class="req">*</span></label>
+            <select id="type" name="拍攝類型" required>
+              <option value="">請選擇</option>
+              <option value="婚紗">婚紗</option>
+              <option value="婚禮紀錄">婚禮紀錄</option>
+              <option value="形象照">形象照</option>
+              <option value="其他">其他／還不確定</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="date">預計拍攝日期</label>
+            <input type="date" id="date" name="拍攝日期">
+          </div>
+
+          <div class="field">
+            <label for="location">拍攝地點</label>
+            <input type="text" id="location" name="拍攝地點" placeholder="例：臺中西屯區婚宴會館">
+          </div>
+
+          <div class="field">
+            <label for="budget">預算</label>
+            <select id="budget" name="預算">
+              <option value="">請選擇</option>
+              <option value="NT$15,000 以下">NT$15,000 以下</option>
+              <option value="NT$15,000–30,000">NT$15,000 – 30,000</option>
+              <option value="NT$30,000–50,000">NT$30,000 – 50,000</option>
+              <option value="NT$50,000 以上">NT$50,000 以上</option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label for="message">留言</label>
+            <textarea id="message" name="留言" placeholder="想拍的感覺、你們的故事，或任何想問的問題都可以寫在這裡。"></textarea>
+          </div>
+
+          <p class="form-note">標示 * 為必填。你的資料只用於回覆詢問，不會提供給第三方。</p>
+          <button type="submit" class="btn btn-primary">送出詢問</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== 8. 頁尾 ===================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <p class="footer-brand">小柯攝影工作室</p>
+          <p>自然、不過度修飾，重視情緒與現場關係的臺中婚紗、婚禮紀錄與形象照攝影。</p>
+        </div>
+        <div>
+          <h3>EMAIL</h3>
+          <address><a href="mailto:hello@kophoto.tw">hello@kophoto.tw</a></address>
+        </div>
+        <div>
+          <h3>INSTAGRAM</h3>
+          <a href="https://www.instagram.com/kophoto.tw" target="_blank" rel="noopener noreferrer">@kophoto.tw</a>
+        </div>
+        <div>
+          <h3>服務地區</h3>
+          <p>臺中市為主<br>彰化、南投、苗栗可接（另計車馬費）</p>
+        </div>
+      </div>
+      <p class="copyright">© 2026 小柯攝影工作室 Ko Photography. All rights reserved. 網站內所有照片版權所有，未經授權請勿轉載使用。</p>
+    </div>
+  </footer>
+
+  <script>
+    /* =========================================================
+       表單送到 Google 試算表
+       把下面的網址換成你部署 Apps Script 後拿到的「網頁應用程式」網址（結尾是 /exec）
+       ========================================================= */
+    const SCRIPT_URL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
+
+    const form = document.getElementById("contact-form");
+    const statusEl = document.getElementById("form-status");
+    const button = form.querySelector('button[type="submit"]');
+
+    function showStatus(text, type) {
+      statusEl.textContent = text;
+      statusEl.className = "form-status " + type;
+    }
+
+    // 必填欄位通過瀏覽器檢查後才會觸發 submit
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      button.disabled = true;
+      button.textContent = "送出中…";
+      showStatus("", "");
+
+      try {
+        // 用 URLSearchParams 送出，Apps Script 可以直接用 e.parameter 讀取
+        const response = await fetch(SCRIPT_URL, {
+          method: "POST",
+          body: new URLSearchParams(new FormData(form))
+        });
+        const result = await response.json();
+        if (result.result !== "success") throw new Error(result.message);
+
+        form.reset();
+        showStatus("已收到你的詢問，我會在 2 個工作天內回覆，謝謝！", "success");
+      } catch (error) {
+        console.error(error);
+        showStatus("送出失敗，請稍後再試，或直接寄信到 hello@kophoto.tw。", "error");
+      } finally {
+        button.disabled = false;
+        button.textContent = "送出詢問";
+      }
+    });
+  </script>
+</body>
+</html>
